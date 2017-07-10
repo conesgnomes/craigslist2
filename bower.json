@@ -1,0 +1,17 @@
+{
+  "name": "craigslist-copy",
+  "description": "A copy of craigslist to practice using Angular CLI",
+  "main": "",
+  "authors": [
+    "conesgnomes <connorlarsen@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

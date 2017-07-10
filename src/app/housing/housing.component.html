@@ -1,0 +1,7 @@
+<h2>Items for Sale</h2>
+
+<div *ngFor="let post of posts" (click)="goToDetailPage(post)" class="item-group">
+  <div class="item-card">
+    <h4><span class="date">{{post.date}}</span>, {{post.title}}, ${{post.price}}</h4>
+  </div>
+</div>
