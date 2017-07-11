@@ -1,25 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../post.model';
 import { Router } from '@angular/router';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-for-sale',
   templateUrl: './for-sale.component.html',
-  styleUrls: ['./for-sale.component.scss']
+  styleUrls: ['./for-sale.component.scss'],
+  providers: [PostService]
 })
 
-export class ForSaleComponent {
+export class ForSaleComponent implements OnInit {
+  posts: Post[];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private postService: PostService) { }
 
-  posts: Post[] = [
-    new Post("July 10, 2017", "Vaccuum", 50, "Portland", "This is a used vaccuum.", 1),
-    new Post("July 10, 2017", "Macbook", 900, "Portland", "This is a used computer in slightly used condition.", 2),
-    new Post("July 9, 2017", "iPhone 6", 150, "Portland", "This is a used iPhone 6, gold, 64GB.", 3),
-    new Post("July 9, 2017", "Computer Desk", 75, "Portland", "This is a used desk - lightly used and could use a new coat of laquer", 4),
-    new Post("July 9, 2017", "Wok", 10, "Portland", "Fine wok from china, seasoned and ready to use", 5),
-    new Post("July 8, 2017", "Floor Lamp", 20, "Vancouver", "This is a used lamp from IKEA", 6)
-  ];
+  ngOnInit() {
+    this.posts = this.postService.getPosts();
+  }
 
   goToDetailPage(clickedPost: Post) {
     this.router.navigate(['posts', clickedPost.id]);
