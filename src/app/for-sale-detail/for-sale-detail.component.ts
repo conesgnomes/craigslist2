@@ -13,10 +13,13 @@ import { PostService } from '../post.service';
 })
 
 export class ForSaleDetailComponent implements OnInit {
-  postId: number = null;
+  postId: number;
   postToDisplay: Post;
 
-  constructor(private route: ActivatedRoute, private location: Location, private postService: PostService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+    private postService: PostService) {}
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
